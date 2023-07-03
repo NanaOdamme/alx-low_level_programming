@@ -13,7 +13,7 @@ void print_diagsums(int *a, int size)
 	int sum2 = 0;
 	int y = 0;
 
-	// Calculate sum1 along the diagonal from top-left to bottom-right
+	/*Calculate sum1 along the diagonal from top-left to bottom-right*/
 	while (y < size)
 	{
 		sum1 = sum1 + a[y * size + y];
@@ -22,7 +22,7 @@ void print_diagsums(int *a, int size)
 
 	y = size - 1;
 
-	// Calculate sum2 along the diagonal from top-right to bottom-left
+	/*Calculate sum2 along the diagonal from top-right to bottom-left*/
 	while (y >= 0)
 	{
 		sum2 += a[y * size + (size - y - 1)];
