@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * print_diagsums - Entry point
@@ -12,26 +13,21 @@ void print_diagsums(int *a, int size)
 	int sum2 = 0;
 	int y = 0;
 
-	/*Calculate sum1 along the diagonal from top-left to bottom-right*/
+	// Calculate sum1 along the diagonal from top-left to bottom-right
 	while (y < size)
 	{
-		sum1 = sum1 + *(a + y * size + y);
+		sum1 = sum1 + a[y * size + y];
 		y++;
 	}
 
 	y = size - 1;
 
-	/*Calculate sum2 along the diagonal from top-right to bottom-left*/
+	// Calculate sum2 along the diagonal from top-right to bottom-left
 	while (y >= 0)
 	{
-		sum2 += *(a + y * size + (size - y - 1));
+		sum2 += a[y * size + (size - y - 1)];
 		y--;
 	}
 
-	/* Print the sums*/
-	_putchar(sum1 + '0');
-	_putchar(',');
-	_putchar(' ');
-	_putchar(sum2 + '0');
-	_putchar('\n');
+	printf("%d, %d\n", sum1, sum2);
 }
