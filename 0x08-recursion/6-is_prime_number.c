@@ -10,9 +10,9 @@
 int Divisible(int n, int ab)
 {
 	if (ab == 1)
-		return (1); 
+		return (1);
 	if (n % ab == 0)
-		return 0;
+		return (0);
 	return (Divisible(n, ab - 1));
 }
 
