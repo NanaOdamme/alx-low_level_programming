@@ -4,7 +4,7 @@
 
 /**
  * PositiveNum - Checks if a string represents a positive number
- * @a: String to be checked
+ * @amp: String to be checked
  *
  * Return: 1 if positive number, 0 otherwise
  */
@@ -32,6 +32,7 @@ int main(int argc, char *argv[])
 {
 	int result = 0;
 	int ind = 1;
+
 	if (argc == 1)
 	{
 		printf("0\n");
