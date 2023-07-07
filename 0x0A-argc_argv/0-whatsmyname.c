@@ -10,7 +10,8 @@
 int main(int argc __attribute__((unused)), char *argv[])
 {
 	char *pN = argv[0];
+
 	printf("%s\n", pN);
 
-	return 0;
+	return (0);
 }
