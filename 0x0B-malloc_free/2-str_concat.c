@@ -26,7 +26,7 @@ char *str_concat(char *s1, char *s2)
 
 	cat = malloc(sizeof(char) * (ind1 + ind2 + 1));
 	if (cat == NULL)
-		return NULL;
+		return (NULL);
 
 	ind1 = ind_cat = 0;
 	while (s1[ind1] != '\0')
@@ -46,5 +46,5 @@ char *str_concat(char *s1, char *s2)
 
 	cat[ind_cat] = '\0';  /* Add null terminator */
 
-	return cat;
+	return (cat);
 }
