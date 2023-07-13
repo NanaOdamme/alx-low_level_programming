@@ -11,44 +11,36 @@
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int lengths1 = 0, lengths2 = 0, i = 0, j = 0;
-	char *memory;
+	char *catmem;
+	unsigned int i, j = 0, length1 = 0, length2 = 0;
 
-	if (s1 == NULL && s2 == NULL)
-	{
-		s1 = " ";
-		s2 = " ";
-	}
-	while (s1[lengths1] != '\0')
-		lengths1++;
+	while (s1 && s1[length1])
+		length1++;
+	while (s2 && s2[length2])
+		length2++;
 
-	while (s2[lengths2] != '\0')
-		lengths2++;
-
-	if (n >= lengths2)
-	{
-		memory = malloc((lengths1 + n + 1) * sizeof(char));
-	}
+	if (n < length2)
+		catmem = malloc(sizeof(char) * (length1 + n + 1));
 	else
-	{
-		memory = malloc((lengths1 + lengths2 + 1) * sizeof(char));
-	}
-	if (memory == NULL)
-	{
+		catmem = malloc(sizeof(char) * (length1 + length2 + 1));
+
+	if (!catmem)
 		return (NULL);
-	}
-	while (s1[i] != '\0')
+
+	i = 0;
+	while (i < length1)
 	{
-		memory[i] = s1[i];
+		catmem[i] = s1[i];
 		i++;
-	}
-	while (j < n && s2[j] != '\0')
-	{
-		memory[i] = s2[j];
-		i++;
-		j++;
 	}
 
-	memory[i] = '\0';
-	return (memory);
+	while (n < length2 && i < (length1 + n))
+		catmem[i++] = s2[j++];
+
+	while (n >= length2 && i < (length1 + length2))
+		catmem[i++] = s2[j++];
+
+	catmem[i] = '\0';
+
+	return (catmem);
 }
