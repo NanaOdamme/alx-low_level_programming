@@ -57,34 +57,32 @@ int _strlen(char *s)
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	int l1 = 0, l2 = 0;
+	dog_t *new;
+	int l1, l2;
 
-	dog_t *ptr = malloc(sizeof(dog_t));
+	l1 = _strlen(name);
+	l2 = _strlen(owner);
 
-	if (ptr == NULL)
+	new = malloc(sizeof(dog_t));
+	if (new == NULL)
+		return (NULL);
+
+	new->name = malloc(sizeof(char) * (l1 + 1));
+	if (new->name == NULL)
 	{
+		free(new);
 		return (NULL);
 	}
-
-	ptr->name = malloc((l1 + 1) * sizeof(char));
-	if (ptr->name == NULL)
+	new->owner = malloc(sizeof(char) * (l2 + 1));
+	if (new->owner == NULL)
 	{
-		free(ptr);
+		free(new);
+		free(new->name);
 		return (NULL);
 	}
+	_strcpy(new->name, name);
+	_strcpy(new->owner, owner);
+	new->age = age;
 
-	ptr->owner = malloc(sizeof(char) * (l2 + 1));
-	if (ptr->owner == NULL)
-	{
-		free(ptr);
-		free(ptr->name);
-		return (NULL);
-	}
-
-	_strcpy(ptr->name, name);
-	_strcpy(ptr->owner, owner);
-	ptr->age = age;
-
-	return (ptr);
-
+	return (new);
 }
