@@ -28,11 +28,6 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 
 	operations = get_op_func(operators);
 
-	if (operations == NULL)
-	{
-		printf("Error\n");
-		return (98);
-	}
 
 	if (operations == NULL)
 	{
