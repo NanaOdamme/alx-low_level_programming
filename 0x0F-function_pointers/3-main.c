@@ -19,7 +19,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	if (argc != 4)
 	{
 		printf("Error\n");
-		return (98);
+		exit(98);
 	}
 
 	num1 = atoi(argv[1]);
@@ -32,13 +32,13 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	if (operations == NULL)
 	{
 		printf("Error\n");
-		return (99);
+		exit(99);
 	}
 
 	if ((*operators == '/' || *operators == '%') && num2 == 0)
 	{
 		printf("Error\n");
-		return (100);
+		exit(100);
 	}
 
 
