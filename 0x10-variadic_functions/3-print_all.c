@@ -8,51 +8,43 @@
  */
 void print_all(const char * const format, ...)
 {
-	int count;
-	char *string, *separator;
-	va_list myvar_types;
+	int count = 0;
+	char *string;
+	char *comma = "";
+	va_list args;
 
-	va_start(myvar_types, format);
+	va_start(args, format);
 
-	separator = "";
-
-	count = 0;
 	if (format)
 	{
-		while (format[count])
+		while (format[count] != '\0')
 		{
 			switch (format[count])
 			{
 				case 'c':
-				printf("%s%c", separator, va_arg(myvar_types, int));
-				break;
-
+					printf("%s%c", comma, va_arg(args, int));
+					break;
 				case 'i':
-				printf("%s%d", separator, va_arg(myvar_types, int));
-				break;
-
+					printf("%s%d", comma, va_arg(args, int));
+					break;
 				case 'f':
-				printf("%s%f", separator, va_arg(myvar_types, double));
-				break;
-
+					printf("%s%f", comma, va_arg(args, double));
+					break;
 				case 's':
-				string = va_arg(myvar_types, char *);
-
-				if (!string)
-				{
+					string = va_arg(args, char *);
+					if (!string)
 					string = "(nil)";
-					printf("%s%s", separator, string);
-				}
-				break;
+					printf("%s%s", comma, string);
+					break;
 				default:
-				count++;
-				continue;
+					count++;
+					continue;
 			}
-			separator = ", ";
+			comma = ", ";
 			count++;
 		}
 	}
 
-		printf("\n");
-		va_end(myvar_types);
+	printf("\n");
+	va_end(args);
 }
