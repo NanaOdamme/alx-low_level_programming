@@ -9,12 +9,4 @@ void print_numbers(const char *separator, const unsigned int n, ...);
 void print_strings(const char *separator, const unsigned int n, ...);
 void print_all(const char * const format, ...);
 
-/**
- * typedef - for print functions that take a variable argument list
- * and return void.
- * @print-function: argument
- * @args: The variable argument list.
- */
-typedef void (*print_function)(va_list args);
-
 #endif
