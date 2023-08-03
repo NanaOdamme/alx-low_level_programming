@@ -10,21 +10,23 @@
  */
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int result;
+	unsigned int value = 0;
 
 	if (b == NULL)
-		return (0);
-
-	result = 0;
-
-	while (*b != '\0')
 	{
-		if (*b != '0' && *b != '1')
-			return (0); /* Invalid character found, return 0 as error indicator */
-
-		result = (result << 1) + (*b - '0');
-		b++; /* Move to the next character in the string */
+	return (0);
 	}
 
-	return (result);
+	for (int i = 0; b[i] != '\0'; i++)
+	{
+		if (b[i] != '0' && b[i] != '1')
+		{
+			return (0);
+		}
+
+	value += (1 << i) * (b[i] - '0');
+	}
+
+	return (value);
 }
+
