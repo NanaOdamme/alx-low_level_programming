@@ -1,3 +1,3 @@
-#/bin/bash
-wget -p https://github.com/NanaOdamme/alx-low_level_programming/raw/master/0x18-dynamic_libraries/libgiga.so
-export LD_PRELOAD=/tmp/libgiga.so
+#!/bin/bash
+echo "Please make me win!" > gm
+chmod +x gm
